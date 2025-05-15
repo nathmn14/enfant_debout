@@ -4,6 +4,7 @@ Ce projet est un site web développé en PHP avec une base de données MySQL, de
 
 Il inclut une **interface publique** pour les visiteurs et une **interface d'administration** sécurisée pour gérer les événements et activités.
 
+
 ---
 
 ## 📦 Contenu du projet
