@@ -26,7 +26,7 @@ Il inclut une **interface publique** pour les visiteurs et une **interface d'adm
    - Aller sur [localhost/phpmyadmin](http://localhost/phpmyadmin)
    - Créer une base nommée `enfant_debout`
    - Importer le fichier `enfant_debout.sql`
-4. **Configurer la connexion** dans `Backend/request_bdd.php` :
+4. **Configurer la connexion** dans `Backend/connect_bdd.php` :
 
    ```php
    $bdd = new PDO("mysql:host=localhost;dbname=enfant_debout;charset=utf8", "root", "");
