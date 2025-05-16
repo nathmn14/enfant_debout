@@ -98,19 +98,22 @@ $autres = getOtherEvents($id);
         </div>
     </main>
 
-    <!-- Section Contact -->
+    <!-- Contact -->
     <section id="contact" class="py-16 bg-blue-800 text-white text-center">
-        <div class="max-w-screen-xl mx-auto px-6">
+        <div class="container mx-auto px-6">
             <h2 class="text-3xl font-bold mb-4">Contactez-Nous</h2>
             <p class="text-lg mb-4">Ensemble, redonnons espoir aux enfants et aux femmes.</p>
-            <p>Email : <a href="mailto:contact@enfantdebout.org" class="underline">contact@enfantdebout.org</a></p>
-            <p>Téléphone : <strong>+243 000 000 000</strong></p>
+            <p>Email : <span><a href="mailto:edenfantdebout@gmail.com"
+                        class="underline">edenfantdebout@gmail.com</a></span> / <span><a
+                        href="mailto:safalaniayaya@gmail.com" class="underline">safalaniayaya@gmail.com</a></span></p>
+            <p>Téléphone : <strong>+243 820 846 828</strong></p>
         </div>
     </section>
+    </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-6 text-center">
-        <div class="max-w-screen-xl mx-auto">
+    <footer class="bg-gray-800 text-white py-6">
+        <div class="container mx-auto text-center">
             <p>&copy; 2025 Enfant Debout. Tous droits réservés.</p>
         </div>
     </footer>

@@ -75,6 +75,7 @@ $evenements = getAll();
         <!-- Conteneur des slides -->
         <div id="carousel-container"
             class="absolute inset-0 w-full h-full transition-opacity duration-1000 bg-cover bg-center"></div>
+
         <div class="absolute inset-0 bg-black bg-opacity-60 z-0"></div>
 
         <!-- Contenu -->
@@ -272,8 +273,11 @@ $evenements = getAll();
             <div class="container mx-auto px-6">
                 <h2 class="text-3xl font-bold mb-4">Contactez-Nous</h2>
                 <p class="text-lg mb-4">Ensemble, redonnons espoir aux enfants et aux femmes.</p>
-                <p>Email : <a href="mailto:contact@enfantdebout.org" class="underline">contact@enfantdebout.org</a></p>
-                <p>Téléphone : <strong>+243 000 000 000</strong></p>
+                <p>Email : <span><a href="mailto:edenfantdebout@gmail.com"
+                            class="underline">edenfantdebout@gmail.com</a></span> / <span><a
+                            href="mailto:safalaniayaya@gmail.com" class="underline">safalaniayaya@gmail.com</a></span>
+                </p>
+                <p>Téléphone : <strong>+243 820 846 828</strong></p>
             </div>
         </section>
     </main>

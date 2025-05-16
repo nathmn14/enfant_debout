@@ -1,6 +1,6 @@
 <?php
 
-header('Location: Frontend/Pages/accueil.php');
+header('Location: Frontend/Pages/Accueil.php');
 exit();
 
 ?>

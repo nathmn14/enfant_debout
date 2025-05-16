@@ -71,23 +71,25 @@ $evenements = getAll();
         <?php endif; ?>
     </main>
 
-    <!-- Contact & Footer identiques -->
-
+    <!-- Contact -->
     <section id="contact" class="py-16 bg-blue-800 text-white text-center">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="container mx-auto px-6">
             <h2 class="text-3xl font-bold mb-4">Contactez-Nous</h2>
             <p class="text-lg mb-4">Ensemble, redonnons espoir aux enfants et aux femmes.</p>
-            <p>Email : <a href="mailto:contact@enfantdebout.org" class="underline">contact@enfantdebout.org</a></p>
-            <p>Téléphone : <strong>+243 000 000 000</strong></p>
+            <p>Email : <span><a href="mailto:edenfantdebout@gmail.com"
+                        class="underline">edenfantdebout@gmail.com</a></span> / <span><a
+                        href="mailto:safalaniayaya@gmail.com" class="underline">safalaniayaya@gmail.com</a></span></p>
+            <p>Téléphone : <strong>+243 820 846 828</strong></p>
         </div>
     </section>
+    </main>
 
+    <!-- Footer -->
     <footer class="bg-gray-800 text-white py-6">
-        <div class="container mx-auto text-center px-4">
+        <div class="container mx-auto text-center">
             <p>&copy; 2025 Enfant Debout. Tous droits réservés.</p>
         </div>
     </footer>
-
     <script>
         document.getElementById("menu-button").addEventListener("click", function () {
             document.getElementById("mobile-menu").classList.toggle("hidden");

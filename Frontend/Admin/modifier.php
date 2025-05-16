@@ -62,40 +62,32 @@ if (isset($_POST['submit'])) {
 
 <body class="bg-gray-100 min-h-screen flex flex-col">
 
-    <!-- Navbar identique -->
-    <header class="bg-blue-800 text-white w-full">
+    <!-- Navbar -->
+    <header class="bg-blue-800 text-white">
         <div class="container mx-auto flex items-center justify-between px-4 py-4">
             <div class="flex items-center space-x-4">
-                <img src="../assets/logo.png" alt="Logo Enfant Debout" class="h-12 w-auto" />
+                <img src="../assets/logo.png" alt="Logo Enfant Debout" class="h-12 w-auto">
                 <div>
                     <h1 class="text-xl font-bold">Enfant Debout</h1>
                     <p class="text-sm">ONG pour l’enfant et la femme</p>
                 </div>
             </div>
             <nav class="hidden md:flex space-x-6">
-                <a href="#a-propos" class="hover:text-blue-200">À propos</a>
-                <a href="#evenements" class="hover:text-blue-200">Événements</a>
-                <a href="#education" class="hover:text-blue-200">Éducation</a>
-                <a href="#sante" class="hover:text-blue-200">Santé</a>
-                <a href="#protection" class="hover:text-blue-200">Protection</a>
-                <a href="#contact" class="hover:text-blue-200">Contact</a>
+                <a href="../../index.php" class="hover:text-blue-200">Retourner à la page d'Accueil</a>
             </nav>
-            <button class="md:hidden" id="menu-button" aria-label="Menu">
+            <button class="md:hidden" id="menu-button">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
             </button>
         </div>
+        <!-- Mobile menu -->
         <div id="menu" class="md:hidden hidden px-4 pb-4">
-            <a href="#a-propos" class="block py-2 hover:text-blue-200">À propos</a>
-            <a href="#evenements" class="block py-2 hover:text-blue-200">Événements</a>
-            <a href="#education" class="block py-2 hover:text-blue-200">Éducation</a>
-            <a href="#sante" class="block py-2 hover:text-blue-200">Santé</a>
-            <a href="#protection" class="block py-2 hover:text-blue-200">Protection</a>
-            <a href="#contact" class="block py-2 hover:text-blue-200">Contact</a>
+            <a href="../../index.php" class="hover:text-blue-200">Retourner à la page d'Accueil</a>
         </div>
     </header>
+
 
     <!-- Barre supérieure admin -->
     <div class="bg-white shadow">
@@ -156,6 +148,25 @@ if (isset($_POST['submit'])) {
             </div>
         </form>
     </main>
+    <!-- Contact -->
+    <section id="contact" class="py-16 bg-blue-800 text-white text-center">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-4">Contactez-Nous</h2>
+            <p class="text-lg mb-4">Ensemble, redonnons espoir aux enfants et aux femmes.</p>
+            <p>Email : <span><a href="mailto:edenfantdebout@gmail.com"
+                        class="underline">edenfantdebout@gmail.com</a></span> / <span><a
+                        href="mailto:safalaniayaya@gmail.com" class="underline">safalaniayaya@gmail.com</a></span></p>
+            <p>Téléphone : <strong>+243 820 846 828</strong></p>
+        </div>
+    </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2025 Enfant Debout. Tous droits réservés.</p>
+        </div>
+    </footer>
 
     <script>
         // Menu mobile toggle
