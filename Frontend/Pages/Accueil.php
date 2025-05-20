@@ -15,14 +15,16 @@ $evenements = getAll();
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {},
-            },
-            plugins: [tailwindcssLineClamp],
-        }
+    tailwind.config = {
+        theme: {
+            extend: {},
+        },
+        plugins: [tailwindcssLineClamp],
+    }
     </script>
     <script src="https://cdn.tailwindcss.com?plugins=line-clamp"></script>
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
 
 </head>
@@ -102,9 +104,6 @@ $evenements = getAll();
     </div>
 
 
-    </section>
-
-
     <main>
         <!-- À propos -->
         <section id="a-propos" class="py-20 bg-gray-100 text-center">
@@ -133,6 +132,133 @@ $evenements = getAll();
             </div>
         </section>
 
+        <!-- Présentation -->
+        <section id="presentation" class="bg-white py-20 px-6">
+            <div class="max-w-7xl mx-auto text-center">
+                <h2 class="text-4xl font-bold text-indigo-700 mb-4" data-aos="fade-up">Qui sommes-nous ?</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto mb-12" data-aos="fade-up" data-aos-delay="100">
+                    Enfant Debout est une organisation engagée dans la défense des droits et du bien-être des enfants et
+                    des communautés vulnérables en RDC.
+                </p>
+            </div>
+
+            <!-- Domaines d’intervention -->
+            <div class="max-w-6xl mx-auto mb-16">
+                <h3 class="text-2xl font-semibold text-gray-800 mb-6 text-center" data-aos="zoom-in">Domaines
+                    d’intervention</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                    <!-- Exemple de carte -->
+                    <div class="bg-indigo-50 p-6 rounded-xl shadow hover:shadow-xl transition transform hover:scale-105"
+                        data-aos="zoom-in-up">
+                        <h4 class="text-lg font-semibold text-indigo-700">📘 Éducation</h4>
+                    </div>
+                    <div class="bg-indigo-50 p-6 rounded-xl shadow hover:shadow-xl transition transform hover:scale-105"
+                        data-aos="zoom-in-up" data-aos-delay="100">
+                        <h4 class="text-lg font-semibold text-indigo-700">🛡️ Protection de l’Enfant</h4>
+                    </div>
+                    <div class="bg-indigo-50 p-6 rounded-xl shadow hover:shadow-xl transition transform hover:scale-105"
+                        data-aos="zoom-in-up" data-aos-delay="200">
+                        <h4 class="text-lg font-semibold text-indigo-700">🏥 Santé</h4>
+                    </div>
+                    <div class="bg-indigo-50 p-6 rounded-xl shadow hover:shadow-xl transition transform hover:scale-105"
+                        data-aos="zoom-in-up" data-aos-delay="300">
+                        <h4 class="text-lg font-semibold text-indigo-700">🥗 Nutrition</h4>
+                    </div>
+                    <div class="bg-indigo-50 p-6 rounded-xl shadow hover:shadow-xl transition transform hover:scale-105"
+                        data-aos="zoom-in-up" data-aos-delay="400">
+                        <h4 class="text-lg font-semibold text-indigo-700">👩 Droit de la femme</h4>
+                    </div>
+                    <div class="bg-indigo-50 p-6 rounded-xl shadow hover:shadow-xl transition transform hover:scale-105"
+                        data-aos="zoom-in-up" data-aos-delay="500">
+                        <h4 class="text-lg font-semibold text-indigo-700">🕊️ Paix & Démocratie</h4>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mission & Vision -->
+            <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 mb-20">
+                <div class="bg-gray-100 p-8 rounded-xl shadow" data-aos="fade-right">
+                    <h3 class="text-2xl font-semibold text-indigo-700 mb-4">🎯 Notre mission</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        Apporter un soutien moral, psychologique et une protection aux enfants désœuvrés et en situation
+                        difficile, en impliquant toutes les parties prenantes pour améliorer les conditions de vie des
+                        couches vulnérables.
+                    </p>
+                </div>
+                <div class="bg-gray-100 p-8 rounded-xl shadow" data-aos="fade-left">
+                    <h3 class="text-2xl font-semibold text-indigo-700 mb-4">🚀 Notre vision</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        Être une organisation de référence pour les personnes vulnérables et les communautés les plus
+                        défavorisées de la RDC, en leur offrant un moyen d'améliorer leurs conditions de vie.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Galerie -->
+            <div class="max-w-6xl mx-auto" data-aos="fade-up">
+                <h3 class="text-2xl font-semibold text-gray-800 text-center mb-6">🖼️ Galerie</h3>
+                <div class="swiper mySwiper rounded-xl overflow-hidden">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="../assets/slides/slide1.jpg" alt="Image 1" class="w-full h-64 object-cover" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="../assets/slides/slide2.jpg" alt="Image 1" class="w-full h-64 object-cover" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="../assets/slides/slide3.jpg" alt="Image 1" class="w-full h-64 object-cover" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="../assets/slides/slide4.jpg" alt="Image 1" class="w-full h-64 object-cover" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="../assets/slides/slide6.jpg" alt="Image 1" class="w-full h-64 object-cover" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="../assets/slides/slide7.jpg" alt="Image 1" class="w-full h-64 object-cover" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="../assets/slides/slide8.jpg" alt="Image 1" class="w-full h-64 object-cover" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="../assets/slides/slide9.jpg" alt="Image 1" class="w-full h-64 object-cover" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="../assets/slides/slide10.jpg" alt="Image 1" class="w-full h-64 object-cover" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="../assets/slides/slide11.jpg" alt="Image 1" class="w-full h-64 object-cover" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="../assets/slides/slide12.jpg" alt="Image 1" class="w-full h-64 object-cover" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="../assets/slides/slide13.jpg" alt="Image 1" class="w-full h-64 object-cover" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="../assets/slides/slide14.jpg" alt="Image 1" class="w-full h-64 object-cover" />
+                        </div>
+
+                        <!-- Plus d’images si besoin -->
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+                <!-- Bouton Tout voir -->
+                <center>
+                    <div class="mt-10">
+                        <a href="photos.php"
+                            class="inline-block bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition">
+                            Voir toutes les photos
+                        </a>
+                    </div>
+
+                </center>
+
+            </div>
+        </section>
+
 
         <!-- Événements dynamiques -->
         <section id="evenements" class="pt-20 pb-10 bg-white text-center">
@@ -141,44 +267,45 @@ $evenements = getAll();
                 <h2 class="text-4xl font-bold text-blue-800 mb-10" data-aos="fade-up">Événements & Activités</h2>
 
                 <?php if (count($evenements) > 0): ?>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-                        <?php
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <?php
                         $compteur = 0;
                         foreach ($evenements as $evenement):
                             if ($compteur >= 4)
                                 break;
                             $compteur++;
                             ?>
-                            <div class="flex flex-col bg-white rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden transform hover:-translate-y-1"
-                                data-aos="zoom-in">
-                                <img src="../Admin/uploads/<?= $evenement['image'] ?>" alt="<?= $evenement['title'] ?>"
-                                    class="w-full h-56 object-cover">
+                    <div class="flex flex-col bg-white rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden transform hover:-translate-y-1"
+                        data-aos="zoom-in">
+                        <img src="../Admin/uploads/<?= $evenement['image'] ?>" alt="<?= $evenement['title'] ?>"
+                            class="w-full h-56 object-cover">
 
-                                <div class="p-5 flex flex-col justify-between flex-1">
-                                    <div>
-                                        <h3 class="text-xl font-semibold text-blue-700 mb-2"><?= $evenement['title'] ?></h3>
-                                        <p class="text-gray-600 text-sm line-clamp-4"><?= nl2br($evenement['description']) ?>
-                                        </p>
-                                    </div>
-                                    <a href="evenement.php?id=<?= $evenement['id'] ?>"
-                                        class="mt-4 inline-block text-blue-600 font-semibold hover:underline transition">
-                                        En savoir plus →
-                                    </a>
-                                </div>
+                        <div class="p-5 flex flex-col justify-between flex-1">
+                            <div>
+                                <h3 class="text-xl font-semibold text-blue-700 mb-2"><?= $evenement['title'] ?></h3>
+                                <p class="text-gray-600 text-sm line-clamp-4">
+                                    <?= nl2br($evenement['description']) ?>
+                                </p>
                             </div>
-                        <?php endforeach; ?>
+                            <a href="evenement.php?id=<?= $evenement['id'] ?>"
+                                class="mt-4 inline-block text-blue-600 font-semibold hover:underline transition">
+                                En savoir plus →
+                            </a>
+                        </div>
                     </div>
+                    <?php endforeach; ?>
+                </div>
 
-                    <!-- Bouton Tout voir -->
-                    <div class="mt-10">
-                        <a href="liste_evenements.php"
-                            class="inline-block bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition">
-                            Voir tous les événements
-                        </a>
-                    </div>
+                <!-- Bouton Tout voir -->
+                <div class="mt-10">
+                    <a href="liste_evenements.php"
+                        class="inline-block bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition">
+                        Voir tous les événements
+                    </a>
+                </div>
 
                 <?php else: ?>
-                    <p class="text-gray-600">Aucun événement disponible pour le moment.</p>
+                <p class="text-gray-600">Aucun événement disponible pour le moment.</p>
                 <?php endif; ?>
             </div>
         </section>
@@ -190,7 +317,8 @@ $evenements = getAll();
             <div class="container mx-auto px-6 max-w-6xl">
                 <h2 class="text-4xl font-bold text-blue-800 mb-8" data-aos="fade-up">Éducation</h2>
                 <p class="text-lg text-gray-700 mb-8 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">
-                    Nous garantissons l'accès à une éducation inclusive et de qualité pour les enfants, en particulier
+                    Nous garantissons l'accès à une éducation inclusive et de qualité pour les enfants, en
+                    particulier
                     les filles,
                     afin qu'ils puissent construire leur avenir et briser le cycle de la pauvreté.
                 </p>
@@ -200,11 +328,13 @@ $evenements = getAll();
                         <p class="text-gray-700 mb-4">
                             Grâce à nos partenariats avec les écoles locales, nous distribuons du matériel scolaire,
                             finançons les frais
-                            de scolarité, et organisons des ateliers éducatifs innovants centrés sur les compétences de
+                            de scolarité, et organisons des ateliers éducatifs innovants centrés sur les compétences
+                            de
                             vie.
                         </p>
                         <p class="text-gray-700">
-                            Notre objectif est de faire de chaque salle de classe un lieu d’éveil, de savoir, mais aussi
+                            Notre objectif est de faire de chaque salle de classe un lieu d’éveil, de savoir, mais
+                            aussi
                             de protection.
                         </p>
                     </div>
@@ -218,7 +348,8 @@ $evenements = getAll();
             <div class="container mx-auto px-6 max-w-6xl">
                 <h2 class="text-4xl font-bold text-blue-800 mb-8" data-aos="fade-up">Santé</h2>
                 <p class="text-lg text-gray-700 mb-8 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">
-                    Parce qu’un enfant en bonne santé est un enfant qui peut apprendre, jouer et rêver, notre ONG œuvre
+                    Parce qu’un enfant en bonne santé est un enfant qui peut apprendre, jouer et rêver, notre ONG
+                    œuvre
                     pour l’accès équitable aux soins médicaux essentiels.
                 </p>
                 <div class="grid md:grid-cols-2 gap-6 items-center">
@@ -245,7 +376,8 @@ $evenements = getAll();
             <div class="container mx-auto px-6 max-w-6xl">
                 <h2 class="text-4xl font-bold text-blue-800 mb-8" data-aos="fade-up">Protection</h2>
                 <p class="text-lg text-gray-700 mb-8 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">
-                    Nous luttons contre toutes les formes de violence, d'exploitation et de négligence à l’encontre des
+                    Nous luttons contre toutes les formes de violence, d'exploitation et de négligence à l’encontre
+                    des
                     enfants et des femmes.
                 </p>
                 <div class="md:flex items-center gap-6">
@@ -277,7 +409,11 @@ $evenements = getAll();
                             class="underline">edenfantdebout@gmail.com</a></span> / <span><a
                             href="mailto:safalaniayaya@gmail.com" class="underline">safalaniayaya@gmail.com</a></span>
                 </p>
+                <br>
                 <p>Téléphone : <strong>+243 820 846 828</strong></p>
+                <br>
+                <p>Adresse : Province du Nord Kivu, Ville de Goma/ Quartier Katindo/ boulevard SAKE, Commune de Goma
+                    N°19</p>
             </div>
         </section>
     </main>
@@ -289,84 +425,101 @@ $evenements = getAll();
         </div>
     </footer>
 
-    <!--Carrousel  -->
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+    const swiper = new Swiper(".mySwiper", {
+        loop: true,
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        autoplay: {
+            delay: 5000,
+        },
+    });
+    </script>
+
 
     <script>
-        const slides = [
-            {
-                image: "../assets/carousel/hero.jpg",
-                title: "Pour un avenir digne pour chaque enfant",
-                description: "Ensemble, construisons un monde plus juste pour les plus vulnérables.",
-            },
-            {
-                image: "../assets/carousel/hero2.jpg",
-                title: "Éduquer, soigner, protéger",
-                description: "Chaque action compte pour redonner le sourire à un enfant.",
-            },
-            {
-                image: "../assets/carousel/hero3.jpg",
-                title: "Votre engagement peut changer des vies",
-                description: "Rejoignez notre mission pour bâtir un avenir meilleur.",
-            },
-        ];
+    //Carousel Hero
+    const slides = [{
+            image: "../assets/carousel/hero.jpg",
+            title: "Pour un avenir digne pour chaque enfant",
+            description: "Ensemble, construisons un monde plus juste pour les plus vulnérables.",
+        },
+        {
+            image: "../assets/carousel/hero2.jpg",
+            title: "Éduquer, soigner, protéger",
+            description: "Chaque action compte pour redonner le sourire à un enfant.",
+        },
+        {
+            image: "../assets/carousel/hero3.jpg",
+            title: "Votre engagement peut changer des vies",
+            description: "Rejoignez notre mission pour bâtir un avenir meilleur.",
+        },
+    ];
 
-        let currentSlide = 0;
+    let currentSlide = 0;
 
-        const container = document.getElementById("carousel-container");
-        const title = document.getElementById("carousel-title");
-        const description = document.getElementById("carousel-description");
+    const container = document.getElementById("carousel-container");
+    const title = document.getElementById("carousel-title");
+    const description = document.getElementById("carousel-description");
 
-        function showSlide(index) {
-            const slide = slides[index];
+    function showSlide(index) {
+        const slide = slides[index];
 
-            // Image : transition fondue
-            container.style.opacity = 0;
-            setTimeout(() => {
-                container.style.backgroundImage = `url('${slide.image}')`;
-                container.style.opacity = 1;
-            }, 500);
+        // Image : transition fondue
+        container.style.opacity = 0;
+        setTimeout(() => {
+            container.style.backgroundImage = `url('${slide.image}')`;
+            container.style.opacity = 1;
+        }, 500);
 
-            // Texte : retrait + ajout de classe pour animer
-            title.classList.add("opacity-0", "translate-y-5");
-            description.classList.add("opacity-0", "translate-y-5");
+        // Texte : retrait + ajout de classe pour animer
+        title.classList.add("opacity-0", "translate-y-5");
+        description.classList.add("opacity-0", "translate-y-5");
 
-            setTimeout(() => {
-                title.textContent = slide.title;
-                description.textContent = slide.description;
+        setTimeout(() => {
+            title.textContent = slide.title;
+            description.textContent = slide.description;
 
-                title.classList.remove("opacity-0", "translate-y-5");
-                description.classList.remove("opacity-0", "translate-y-5");
-            }, 600);
-        }
+            title.classList.remove("opacity-0", "translate-y-5");
+            description.classList.remove("opacity-0", "translate-y-5");
+        }, 600);
+    }
 
-        // Lancer le premier slide
+    // Lancer le premier slide
+    showSlide(currentSlide);
+    setInterval(() => {
+        currentSlide = (currentSlide + 1) % slides.length;
         showSlide(currentSlide);
-        setInterval(() => {
-            currentSlide = (currentSlide + 1) % slides.length;
-            showSlide(currentSlide);
-        }, 6000); // toutes les 6 secondes
+    }, 6000); // toutes les 6 secondes
     </script>
 
     <!-- Fin carrousel -->
 
 
     <script>
-        document.getElementById("menu-button").addEventListener("click", function () {
-            const menu = document.getElementById("mobile-menu");
-            menu.classList.toggle("hidden");
-            menu.classList.toggle("animate-slide-down");
-        });
-
+    document.getElementById("menu-button").addEventListener("click", function() {
+        const menu = document.getElementById("mobile-menu");
+        menu.classList.toggle("hidden");
+        menu.classList.toggle("animate-slide-down");
+    });
     </script>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({
-            duration: 1000,       // Durée plus fluide
-            easing: 'ease-in-out',// Animation plus douce
-            once: true,           // Ne se rejoue pas au scroll
-            offset: 100           // Déclenche plus tôt
-        });
+    AOS.init({
+        duration: 1000, // Durée plus fluide
+        easing: 'ease-in-out', // Animation plus douce
+        once: true, // Ne se rejoue pas au scroll
+        offset: 100 // Déclenche plus tôt
+    });
     </script>
 
 

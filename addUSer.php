@@ -1,9 +1,8 @@
 <?php
-// Configuration de la base de données
 $host = 'localhost';
-$db   = 'enfant_debout';
+$db = 'enfant_debout';
 $user = 'root';
-$pass = ''; // Mot de passe par défaut sur XAMPP
+$pass = '';
 $charset = 'utf8mb4';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
@@ -41,21 +40,46 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
-    <title>Inscription</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription - Enfant Debout</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <h2>Créer un compte</h2>
-    <?php if (!empty($message)) echo "<p style='color:" . ($message === 'Inscription réussie !' ? 'green' : 'red') . ";'>$message</p>"; ?>
-    <form method="POST">
-        <label>Email :</label><br>
-        <input type="email" name="email" required><br><br>
 
-        <label>Mot de passe :</label><br>
-        <input type="password" name="password" required><br><br>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
 
-        <button type="submit">S'inscrire</button>
-    </form>
+    <div class="bg-white p-6 rounded-2xl shadow-xl w-full max-w-md">
+        <h2 class="text-2xl font-bold text-center text-blue-600 mb-6">Créer un compte</h2>
+
+        <?php if (!empty($message)): ?>
+            <p
+                class="mb-4 text-center font-semibold <?= $message === 'Inscription réussie !' ? 'text-green-600' : 'text-red-600' ?>">
+                <?= $message ?>
+            </p>
+        <?php endif; ?>
+
+        <form method="POST" class="space-y-4">
+            <div>
+                <label for="email" class="block font-medium text-gray-700">Email :</label>
+                <input type="email" name="email" id="email" required
+                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+
+            <div>
+                <label for="password" class="block font-medium text-gray-700">Mot de passe :</label>
+                <input type="password" name="password" id="password" required
+                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+
+            <button type="submit"
+                class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition duration-200">
+                S'inscrire
+            </button>
+        </form>
+    </div>
+
 </body>
+
 </html>

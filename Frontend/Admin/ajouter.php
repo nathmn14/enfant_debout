@@ -137,8 +137,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <p class="text-lg mb-4">Ensemble, redonnons espoir aux enfants et aux femmes.</p>
             <p>Email : <span><a href="mailto:edenfantdebout@gmail.com"
                         class="underline">edenfantdebout@gmail.com</a></span> / <span><a
-                        href="mailto:safalaniayaya@gmail.com" class="underline">safalaniayaya@gmail.com</a></span></p>
+                        href="mailto:safalaniayaya@gmail.com" class="underline">safalaniayaya@gmail.com</a></span>
+            </p>
+            <br>
             <p>Téléphone : <strong>+243 820 846 828</strong></p>
+            <br>
+            <p>Adresse : Province du Nord Kivu, Ville de Goma/ Quartier Katindo/ boulevard SAKE, Commune de Goma
+                N°19</p>
         </div>
     </section>
     </main>
