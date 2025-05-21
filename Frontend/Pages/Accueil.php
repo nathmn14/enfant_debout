@@ -193,70 +193,70 @@ $evenements = getAll();
                     </p>
                 </div>
             </div>
-
-            <!-- Galerie -->
-            <div class="max-w-6xl mx-auto" data-aos="fade-up">
-                <h3 class="text-2xl font-semibold text-gray-800 text-center mb-6">🖼️ Galerie</h3>
-                <div class="swiper mySwiper rounded-xl overflow-hidden">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <img src="../assets/slides/slide1.jpg" alt="Image 1" class="w-full h-64 object-cover" />
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="../assets/slides/slide2.jpg" alt="Image 1" class="w-full h-64 object-cover" />
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="../assets/slides/slide3.jpg" alt="Image 1" class="w-full h-64 object-cover" />
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="../assets/slides/slide4.jpg" alt="Image 1" class="w-full h-64 object-cover" />
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="../assets/slides/slide6.jpg" alt="Image 1" class="w-full h-64 object-cover" />
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="../assets/slides/slide7.jpg" alt="Image 1" class="w-full h-64 object-cover" />
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="../assets/slides/slide8.jpg" alt="Image 1" class="w-full h-64 object-cover" />
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="../assets/slides/slide9.jpg" alt="Image 1" class="w-full h-64 object-cover" />
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="../assets/slides/slide10.jpg" alt="Image 1" class="w-full h-64 object-cover" />
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="../assets/slides/slide11.jpg" alt="Image 1" class="w-full h-64 object-cover" />
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="../assets/slides/slide12.jpg" alt="Image 1" class="w-full h-64 object-cover" />
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="../assets/slides/slide13.jpg" alt="Image 1" class="w-full h-64 object-cover" />
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="../assets/slides/slide14.jpg" alt="Image 1" class="w-full h-64 object-cover" />
-                        </div>
-
-                        <!-- Plus d’images si besoin -->
+        </section>
+        <!-- Galerie -->
+        <div class="max-w-6xl mx-auto" data-aos="fade-up">
+            <h3 class="text-2xl font-semibold text-gray-800 text-center mb-6">🖼️ Galerie</h3>
+            <div class="swiper mySwiper rounded-xl overflow-hidden">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="../assets/slides/slide1.jpg" alt="Image 1" class="w-full h-64 object-cover" />
                     </div>
-                    <div class="swiper-pagination"></div>
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
+                    <div class="swiper-slide">
+                        <img src="../assets/slides/slide2.jpg" alt="Image 1" class="w-full h-64 object-cover" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="../assets/slides/slide3.jpg" alt="Image 1" class="w-full h-64 object-cover" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="../assets/slides/slide4.jpg" alt="Image 1" class="w-full h-64 object-cover" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="../assets/slides/slide6.jpg" alt="Image 1" class="w-full h-64 object-cover" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="../assets/slides/slide7.jpg" alt="Image 1" class="w-full h-64 object-cover" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="../assets/slides/slide8.jpg" alt="Image 1" class="w-full h-64 object-cover" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="../assets/slides/slide9.jpg" alt="Image 1" class="w-full h-64 object-cover" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="../assets/slides/slide10.jpg" alt="Image 1" class="w-full h-64 object-cover" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="../assets/slides/slide11.jpg" alt="Image 1" class="w-full h-64 object-cover" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="../assets/slides/slide12.jpg" alt="Image 1" class="w-full h-64 object-cover" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="../assets/slides/slide13.jpg" alt="Image 1" class="w-full h-64 object-cover" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="../assets/slides/slide14.jpg" alt="Image 1" class="w-full h-64 object-cover" />
+                    </div>
+
+                    <!-- Plus d’images si besoin -->
                 </div>
-                <!-- Bouton Tout voir -->
-                <center>
-                    <div class="mt-10">
-                        <a href="photos.php"
-                            class="inline-block bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition">
-                            Voir toutes les photos
-                        </a>
-                    </div>
-
-                </center>
-
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
             </div>
+            <!-- Bouton Tout voir -->
+            <center>
+                <div class="mt-10">
+                    <a href="photos.php"
+                        class="inline-block bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition">
+                        Voir toutes les photos
+                    </a>
+                </div>
+
+            </center>
+
+        </div>
         </section>
 
 
