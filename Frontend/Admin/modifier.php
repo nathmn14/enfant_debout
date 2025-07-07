@@ -5,7 +5,7 @@ if (!isset($_SESSION['admin'])) {
     exit();
 }
 
-include('../../Backend/request_bdd.php');
+require_once('../../Backend/request_bdd.php');
 
 $id = $_GET['id'] ?? null;
 $activity = null;
@@ -15,6 +15,11 @@ if ($id) {
     $stmt = $bdd->prepare("SELECT * FROM activities WHERE id = ?");
     $stmt->execute([$id]);
     $activity = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+    if (!$activity) {
+        header('Location: activites.php');
+        exit();
+    }
 }
 
 if (isset($_POST['submit'])) {
@@ -22,12 +27,35 @@ if (isset($_POST['submit'])) {
     $title = trim($_POST['titre']);
     $description = trim($_POST['description']);
     $image = "";
+    $uploadDir = __DIR__ . '/uploads/';
 
-    if (isset($_FILES['image']) && $_FILES['image']['error'] === 0) {
-        $imageName = time() . '_' . basename($_FILES['image']['name']);
-        $targetPath = __DIR__ . '/uploads/' . $imageName;
-        if (move_uploaded_file($_FILES['image']['tmp_name'], $targetPath)) {
+    // Vérifier et créer le répertoire si nécessaire
+    if (!is_dir($uploadDir)) {
+        if (!mkdir($uploadDir, 0755, true)) {
+            $message = "Erreur lors de la création du répertoire d'upload.";
+        }
+    }
+
+    // Vérifier si un nouveau fichier a été uploadé
+    if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
+        $imageTmp = $_FILES['image']['tmp_name'];
+        $imageName = uniqid() . "_" . basename($_FILES['image']['name']);
+        
+        $targetPath = $uploadDir . $imageName;
+        
+        if (move_uploaded_file($imageTmp, $targetPath)) {
+            // Supprimer l'ancienne image si elle existe
+            $stmt = $bdd->prepare("SELECT image FROM activities WHERE id = ?");
+            $stmt->execute([$id]);
+            $oldImage = $stmt->fetchColumn();
+            
+            if ($oldImage && file_exists($uploadDir . $oldImage)) {
+                unlink($uploadDir . $oldImage);
+            }
+            
             $image = $imageName;
+        } else {
+            $message = "Erreur lors du téléversement de la nouvelle image.";
         }
     } else {
         // Garde l'image précédente
@@ -36,13 +64,27 @@ if (isset($_POST['submit'])) {
         $image = $stmt->fetchColumn();
     }
 
+    // Traitement des images secondaires
+    if (isset($_FILES['secondary_images']) && !empty($_FILES['secondary_images']['name'][0])) {
+        foreach ($_FILES['secondary_images']['tmp_name'] as $key => $tmp_name) {
+            if ($_FILES['secondary_images']['error'][$key] === UPLOAD_ERR_OK && is_uploaded_file($tmp_name)) {
+                $file_name = uniqid() . '_' . basename($_FILES['secondary_images']['name'][$key]);
+                $secondary_upload_path = $uploadDir . $file_name;
+                if (move_uploaded_file($tmp_name, $secondary_upload_path)) {
+                    $stmtImg = $bdd->prepare("INSERT INTO activity_images (activity_id, image) VALUES (?, ?)");
+                    $stmtImg->execute([$id, $file_name]);
+                }
+            }
+        }
+    }
+
     if (update($id, $title, $description, $image)) {
         $message = "Modification réussie !";
         // Recharge les données
         $stmt = $bdd->prepare("SELECT * FROM activities WHERE id = ?");
         $stmt->execute([$id]);
         $activity = $stmt->fetch(PDO::FETCH_ASSOC);
-        header("Location:activites.php");
+        header("Location: activites.php");
         exit();
     } else {
         $message = "Erreur lors de la mise à jour.";
@@ -101,10 +143,33 @@ if (isset($_POST['submit'])) {
     </div>
 
     <main class="container mx-auto p-6 max-w-md flex-grow">
-        <?php if ($message): ?>
+        <?php if (!empty($message)): ?>
             <div
                 class="mb-6 rounded-xl p-4 text-center font-medium <?= strpos($message, 'réussie') !== false ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700' ?>">
                 <?= htmlspecialchars($message) ?>
+            </div>
+        <?php endif; ?>
+        
+        <?php if (isset($_GET['success']) && $_GET['success'] == '1'): ?>
+            <div class="mb-6 rounded-xl p-4 text-center font-medium bg-green-100 text-green-700">
+                Image secondaire supprimée avec succès.
+            </div>
+        <?php endif; ?>
+        
+        <?php if (isset($_GET['error'])): ?>
+            <div class="mb-6 rounded-xl p-4 text-center font-medium bg-red-100 text-red-700">
+                <?php 
+                switch($_GET['error']) {
+                    case 'image_not_found':
+                        echo "Image non trouvée.";
+                        break;
+                    case 'delete_failed':
+                        echo "Erreur lors de la suppression de l'image.";
+                        break;
+                    default:
+                        echo "Une erreur s'est produite.";
+                }
+                ?>
             </div>
         <?php endif; ?>
 
@@ -141,6 +206,62 @@ if (isset($_POST['submit'])) {
             </div>
 
             <div>
+                <label for="secondary_images" class="block text-sm font-medium text-gray-700">Ajouter des images
+                    secondaires</label>
+                <input type="file" name="secondary_images[]" id="secondary_images" multiple accept="image/*"
+                    class="mt-1 block w-full text-sm text-gray-700
+                           file:mr-4 file:py-2 file:px-4 file:rounded-full
+                           file:border-0 file:text-sm file:font-semibold
+                           file:bg-yellow-50 file:text-yellow-700 hover:file:bg-yellow-100" />
+                <p class="mt-2 text-xs text-gray-500">Ajouter plusieurs images si nécessaire.</p>
+            </div>
+
+            <!-- Afficher les images secondaires existantes avec option de suppression -->
+            <div class="mt-4">
+                <h3 class="text-sm font-medium text-gray-700">Images secondaires actuelles</h3>
+                <?php
+                if ($id) {
+                    $images = $bdd->prepare("SELECT * FROM activity_images WHERE activity_id = ?");
+                    $images->execute([$id]);
+                    $secondaryImages = $images->fetchAll(PDO::FETCH_ASSOC);
+                    
+                    if (!empty($secondaryImages)) {
+                        foreach ($secondaryImages as $img):
+                            $imagePath = __DIR__ . "/uploads/" . $img['image'];
+                            $imageExists = file_exists($imagePath);
+                        ?>
+                            <div class="flex items-center justify-between mt-2 p-2 border rounded-lg <?= !$imageExists ? 'bg-red-50 border-red-200' : 'bg-gray-50 border-gray-200' ?>">
+                                <div class="flex items-center">
+                                    <?php if ($imageExists): ?>
+                                        <img src="uploads/<?= htmlspecialchars($img['image']) ?>" alt="Image secondaire"
+                                            class="h-20 w-20 object-cover rounded-md mr-3" />
+                                    <?php else: ?>
+                                        <div class="h-20 w-20 bg-red-100 border-2 border-red-300 rounded-md mr-3 flex items-center justify-center">
+                                            <span class="text-red-500 text-xs text-center">Image manquante</span>
+                                        </div>
+                                    <?php endif; ?>
+                                    <div>
+                                        <span class="text-sm text-gray-800"><?= htmlspecialchars($img['image']) ?></span>
+                                        <?php if (!$imageExists): ?>
+                                            <br><span class="text-xs text-red-500">Fichier manquant sur le serveur</span>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+                                <a href="supprimer_image.php?id=<?= $img['id'] ?>&activity_id=<?= $id ?>"
+                                    class="text-red-600 hover:text-red-800 text-sm font-semibold ml-4"
+                                    onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette image ?')">
+                                    Supprimer
+                                </a>
+                            </div>
+                        <?php endforeach;
+                    } else {
+                        echo '<p class="text-sm text-gray-500 mt-2">Aucune image secondaire pour le moment.</p>';
+                    }
+                }
+                ?>
+            </div>
+
+            <div>
                 <button type="submit" name="submit"
                     class="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-2 px-6 rounded-xl w-full transition duration-200">
                     Mettre à jour
@@ -164,7 +285,6 @@ if (isset($_POST['submit'])) {
                 N°19</p>
         </div>
     </section>
-    </main>
 
     <!-- Footer -->
     <footer class="bg-gray-800 text-white py-6">
@@ -179,6 +299,18 @@ if (isset($_POST['submit'])) {
         const menu = document.getElementById('menu');
         menuButton.addEventListener('click', () => {
             menu.classList.toggle('hidden');
+        });
+        
+        // Validation du formulaire
+        document.querySelector('form').addEventListener('submit', function(e) {
+            const titre = document.getElementById('titre').value.trim();
+            const description = document.getElementById('description').value.trim();
+            
+            if (!titre || !description) {
+                e.preventDefault();
+                alert('Veuillez remplir tous les champs obligatoires.');
+                return false;
+            }
         });
     </script>
 
