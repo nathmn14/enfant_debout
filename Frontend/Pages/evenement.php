@@ -2,9 +2,6 @@
 require_once '../../Backend/request_bdd.php';
 
 // Ajoutez ceci si $pdo n'est pas déjà défini dans request_bdd.php
-if (!isset($pdo)) {
-    $pdo = new PDO('mysql:host=localhost;dbname=enfant_debout;charset=utf8mb4', 'root', '');
-}
 
 $id = $_GET['id'] ?? null;
 if (!$id) {
@@ -17,7 +14,7 @@ $autres = getOtherEvents($id);
 
 // Récupérer les images secondaires
 $images = [];
-$stmt = $pdo->prepare("SELECT image FROM activity_images WHERE activity_id = ?");
+$stmt = $bdd->prepare("SELECT image FROM activity_images WHERE activity_id = ?");
 $stmt->execute([$evenement['id']]);
 $images = $stmt->fetchAll(PDO::FETCH_COLUMN);
 ?>
