@@ -3,9 +3,7 @@
 require_once '../../Backend/request_bdd.php';
 
 // Ajoutez ceci si $pdo n'est pas déjà défini dans request_bdd.php
-if (!isset($pdo)) {
-    $pdo = new PDO('mysql:host=localhost;dbname=enfant_debout;charset=utf8mb4', 'root', '');
-}
+
 
 $evenements = getAll();
 $dernier_evenement = count($evenements) > 0 ? $evenements[0] : null;
@@ -464,7 +462,7 @@ function resume_texte($texte, $limite = 350) {
                         <?php
                         // Récupérer les images secondaires
                         $images = [];
-                        $stmt = $pdo->prepare("SELECT image FROM activity_images WHERE activity_id = ?");
+                        $stmt = $bdd->prepare("SELECT image FROM activity_images WHERE activity_id = ?");
                         $stmt->execute([$evenement['id']]);
                         $images = $stmt->fetchAll(PDO::FETCH_COLUMN);
                         ?>
